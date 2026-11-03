@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="registrationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+
+        form {
+            width: 400px;
+            margin: 30px auto;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        label {
+            width: 130px;
+            color: blue;
+            padding-top: 5px;
+        }
+
+        input, select {
+            width: 180px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .gender input {
+            width: auto;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        button {
+            margin-left: 130px;
+            padding: 7px 15px;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            color: #777;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body ng-controller="RegistrationController">
+
+    <h2>User Registration Form</h2>
+
+    <form name="registrationForm"
+          ng-submit="submitForm()"
+          novalidate>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label>Name<span style="color:red">*</span></label>
+            <div>
+                <input type="text"
+                       name="name"
+                       ng-model="user.name"
+                       ng-pattern="/^[A-Za-z ]+$/"
+                       required>
+
+                <span class="error"
+                      ng-show="registrationForm.name.$touched &&
+                      registrationForm.name.$error.required">
+                    Name is required
+                </span>
+
+                <span class="error"
+                      ng-show="registrationForm.name.$touched &&
+                      registrationForm.name.$error.pattern">
+                    Name must not contain numbers or special characters
+                </span>
+            </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label>Password<span style="color:red">*</span></label>
+            <div>
+                <input type="password"
+                       name="password"
+                       ng-model="user.password"
+                       ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/"
+                       required>
+
+                <span class="error"
+                      ng-show="registrationForm.password.$touched &&
+                      registrationForm.password.$error.required">
+                    Password is required
+                </span>
+
+                <span class="error"
+                      ng-show="registrationForm.password.$touched &&
+                      registrationForm.password.$error.pattern">
+                    Minimum 8 characters with uppercase, lowercase and number
+                </span>
+            </div>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+            <label>Age<span style="color:red">*</span></label>
+            <div>
+                <input type="number"
+                       name="age"
+                       ng-model="user.age"
+                       min="18"
+                       max="30"
+                       required>
+
+                <span class="error"
+                      ng-show="registrationForm.age.$touched &&
+                      registrationForm.age.$error.required">
+                    Age is required
+                </span>
+
+                <span class="error"
+                      ng-show="registrationForm.age.$touched &&
+                      (registrationForm.age.$error.min ||
+                      registrationForm.age.$error.max ||
+                      registrationForm.age.$error.number)">
+                    Age must be between 18 and 30
+                </span>
+            </div>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="form-group">
+            <label>Mobile Number<span style="color:red">*</span></label>
+            <div>
+                <input type="text"
+                       name="mobile"
+                       ng-model="user.mobile"
+                       ng-pattern="/^[0-9]{10}$/"
+                       required
+                       maxlength="10">
+
+                <span class="error"
+                      ng-show="registrationForm.mobile.$touched &&
+                      registrationForm.mobile.$error.required">
+                    Mobile number is required
+                </span>
+
+                <span class="error"
+                      ng-show="registrationForm.mobile.$touched &&
+                      registrationForm.mobile.$error.pattern">
+                    Enter exactly 10 digits
+                </span>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label>Email<span style="color:red">*</span></label>
+            <div>
+                <input type="email"
+                       name="email"
+                       ng-model="user.email"
+                       required>
+
+                <span class="error"
+                      ng-show="registrationForm.email.$touched &&
+                      registrationForm.email.$error.required">
+                    Email is required
+                </span>
+
+                <span class="error"
+                      ng-show="registrationForm.email.$touched &&
+                      registrationForm.email.$error.email">
+                    Enter a valid email address
+                </span>
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender<span style="color:red">*</span></label>
+            <div class="gender">
+                <label style="width:auto;color:black;padding-top:0">
+                    <input type="radio"
+                           name="gender"
+                           ng-model="user.gender"
+                           value="Male"
+                           required>
+                    Male
+                </label>
+
+                <label style="width:auto;color:black;padding-top:0">
+                    <input type="radio"
+                           name="gender"
+                           ng-model="user.gender"
+                           value="Female"
+                           required>
+                    Female
+                </label>
+
+                <span class="error"
+                      ng-show="registrationForm.gender.$touched &&
+                      registrationForm.gender.$error.required">
+                    Select your gender
+                </span>
+            </div>
+        </div>
+
+        <!-- State -->
+        <div class="form-group">
+            <label>State<span style="color:red">*</span></label>
+            <div>
+                <select name="state"
+                        ng-model="user.state"
+                        required>
+                    <option value="">Select State</option>
+                    <option>Tamil Nadu</option>
+                    <option>Kerala</option>
+                    <option>Karnataka</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Telangana</option>
+                </select>
+
+                <span class="error"
+                      ng-show="registrationForm.state.$touched &&
+                      registrationForm.state.$error.required">
+                    Please select a state
+                </span>
+            </div>
+        </div>
+
+        <button type="submit"
+                ng-disabled="registrationForm.$invalid">
+            Submit
+        </button>
+
+        <p class="success" ng-if="submitted">
+            Registration Successful!
+        </p>
+
+    </form>
+
+    <script>
+        var app = angular.module("registrationApp", []);
+
+        app.controller("RegistrationController", function($scope) {
+            $scope.user = {};
+            $scope.submitted = false;
+
+            $scope.submitForm = function() {
+                if ($scope.registrationForm.$valid) {
+                    $scope.submitted = true;
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

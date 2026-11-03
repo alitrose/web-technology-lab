@@ -1,0 +1,94 @@
+style.css
+"> 
+</head> 
+ 
+<body> 
+ 
+<header> 
+    <h1>Advanced CSS3 Webpage</h1> 
+</header> 
+ 
+<nav> 
+    <a href="#">Home</a> 
+    <a href="#">About</a> 
+    <a href="#">Gallery</a> 
+    <a href="#">Contact</a> 
+</nav> 
+ 
+<div class="container"> 
+ 
+    <div class="box"> 
+        <h2>Rounded Corners & Shadow</h2> 
+        <p>This box uses border-radius and box-shadow.</p> 
+    </div> 
+ 
+    <div class="border-box"> 
+        <h2>Border Image</h2> 
+        <p>Example of CSS border-image property.</p> 
+    </div> 
+ 
+    <div class="multi-bg"> 
+        <h2>Multiple Background</h2> 
+        <p>Two background images are used here.</p> 
+    </div> 
+ 
+    <div class="form-box"> 
+        <h2>Registration Form</h2> 
+ 
+        <form> 
+ 
+            <input type="text" placeholder="Enter Name" required> 
+ 
+            <br><br> 
+ 
+            <input type="email" placeholder="Enter Email" required> 
+ 
+            <br><br> 
+ 
+            <input type="password" placeholder="Password" required> 
+ 
+            <br><br> 
+ 
+            <input type="submit" value="Register"> 
+ 
+        </form> 
+ 
+    </div> 
+ 
+</div> 
+ 
+<table> 
+ 
+<tr> 
+<th>Name</th> 
+<th>Department</th> 
+</tr> 
+ 
+<tr> 
+<td>Navya</td> 
+<td>CSE</td> 
+</tr> 
+ 
+<tr> 
+<td>Rahul</td> 
+<td>ECE</td> 
+</tr> 
+ 
+<tr> 
+<td>Priya</td> 
+<td>AI & ML</td> 
+</tr> 
+ 
+<tr> 
+<td>Arun</td> 
+<td>IT</td> 
+</tr> 
+ 
+</table> 
+ 
+<footer> 
+© 2026 Web Technology Lab 
+</footer> 
+ 
+</body> 
+</html>

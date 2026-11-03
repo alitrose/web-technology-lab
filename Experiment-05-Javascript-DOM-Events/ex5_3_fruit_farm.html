@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Farm</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #garden {
+            display: grid;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        #garden img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Fruit Farm</h1>
+
+    <div>
+        Rows:
+        <input type="number" id="rows" min="1" value="3">
+
+        Columns:
+        <input type="number" id="columns" min="1" value="3">
+
+        <br><br>
+
+        <button onclick="grow()">Plant Garden</button>
+    </div>
+
+    <div id="garden"></div>
+
+    <script>
+        function grow() {
+
+            // Get rows and columns
+            let rows = parseInt(
+                document.getElementById("rows").value
+            );
+
+            let columns = parseInt(
+                document.getElementById("columns").value
+            );
+
+            // Validate input
+            if (isNaN(rows) || isNaN(columns) ||
+                rows < 1 || columns < 1) {
+                alert("Please enter valid rows and columns.");
+                return;
+            }
+
+            // Get garden element
+            let garden = document.getElementById("garden");
+
+            // Clear previous garden
+            garden.innerHTML = "";
+
+            // Set number of columns
+            garden.style.gridTemplateColumns =
+                `repeat(${columns}, 100px)`;
+
+            // Generate fruit images
+            for (let i = 0; i < rows * columns; i++) {
+
+                // Randomly select apple or orange
+                let fruit = Math.random() < 0.5
+                    ? "apple.jpg.png"
+                    : "orange.jpg.png";
+
+                // Create image element
+                let img = document.createElement("img");
+
+                // Set image path
+                img.src = fruit;
+
+                // Set alternative text
+                img.alt = fruit.includes("apple")
+                    ? "Apple"
+                    : "Orange";
+
+                // Set image dimensions
+                img.width = 100;
+                img.height = 100;
+
+                // Add image to garden
+                garden.appendChild(img);
+            }
+        }
+    </script>
+
+</body>
+</html>

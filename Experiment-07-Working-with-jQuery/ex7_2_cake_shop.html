@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Shop</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+        }
+
+        .container {
+            width: 500px;
+            max-width: 95%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .header {
+            background: #b90000;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .cakes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .cake {
+            border: 1px solid #ddd;
+            padding: 8px 3px;
+            border-radius: 5px;
+        }
+
+        .cake-icon {
+            font-size: 45px;
+        }
+
+        .cake p {
+            font-size: 11px;
+            margin: 5px 0;
+        }
+
+        h2 {
+            color: #2455a6;
+            font-size: 22px;
+        }
+
+        .order {
+            text-align: left;
+            margin: 15px;
+        }
+
+        label {
+            display: block;
+            color: #254b9b;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 98%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            display: block;
+            width: 50%;
+            margin: 15px auto;
+            padding: 10px;
+            background: #0879e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .purchase {
+            border-top: 2px solid #777;
+            padding-top: 15px;
+        }
+
+        .price {
+            display: inline-block;
+            background: #2b9b54;
+            color: white;
+            padding: 8px 30px;
+            font-weight: bold;
+        }
+
+        #total {
+            color: #c32a2a;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">CAKE SHOP</div>
+
+        <div class="cakes">
+            <div class="cake">
+                <div class="cake-icon">🍭</div>
+                <p>Color Cake - Rs.300</p>
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🎂</div>
+                <p>Brown Cake - Rs.200</p>
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🍰</div>
+                <p>Milky Cake - Rs.250</p>
+            </div>
+
+            <div class="cake">
+                <div class="cake-icon">🍫</div>
+                <p>Black Forest Cake - Rs.350</p>
+            </div>
+        </div>
+
+        <h2>Order Cake</h2>
+
+        <div class="order">
+            <label>Color Cake (Quantity)</label>
+            <input type="number" id="color" min="0" value="2">
+
+            <label>Brown Cake (Quantity)</label>
+            <input type="number" id="brown" min="0" value="1">
+
+            <label>Milky Cake (Quantity)</label>
+            <input type="number" id="milky" min="0" value="2">
+
+            <label>Black Forest Cake (Quantity)</label>
+            <input type="number" id="black" min="0" value="1">
+
+            <button id="order">Place Order</button>
+        </div>
+
+        <div class="purchase">
+            <h3>Purchase Order Bill!!!</h3>
+            <span class="price">Total Price</span>
+            <span id="total">Rs.1650</span>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#order").click(function () {
+                let c = Number($("#color").val());
+                let b = Number($("#brown").val());
+                let m = Number($("#milky").val());
+                let f = Number($("#black").val());
+
+                let quantities = [c, b, m, f];
+
+                for (let i = 0; i < quantities.length; i++) {
+                    if (!Number.isInteger(quantities[i]) ||
+                        quantities[i] < 0 ||
+                        !Number.isFinite(quantities[i])) {
+                        alert("Please enter valid non-negative quantities.");
+                        return;
+                    }
+                }
+
+                let total = (c * 300) +
+                            (b * 200) +
+                            (m * 250) +
+                            (f * 350);
+
+                $("#total").text("Rs." + total);
+            });
+        });
+    </script>
+</body>
+</html>

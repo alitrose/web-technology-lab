@@ -1,0 +1,376 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>HTML5 Showcase Page</title> 
+ 
+    <style> 
+        *{ 
+            margin:0; 
+            padding:0; 
+            box-sizing:border-box; 
+        } 
+ 
+        body{ 
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background:#f8f5ff; 
+            color:#333; 
+        } 
+ 
+        header{ 
+            background:linear-gradient(90deg,#6a11cb,#ff4d94); 
+            color:white; 
+            text-align:center; 
+            padding:30px; 
+        } 
+ 
+        section{ 
+            width:85%; 
+            margin:25px auto; 
+            background:white; 
+            padding:20px; 
+            border-radius:15px; 
+            box-shadow:0 6px 15px rgba(0,0,0,0.15); 
+        } 
+ 
+        h2{ 
+            color:#6a11cb; 
+            margin-bottom:15px; 
+            border-bottom:2px solid #ff4d94; 
+            padding-bottom:8px; 
+        } 
+ 
+        p{ 
+            line-height:1.7; 
+        } 
+ 
+        img{ 
+            display:block; 
+            margin:auto; 
+            width:320px; 
+            border-radius:15px; 
+        } 
+ 
+        table{ 
+            width:100%; 
+            border-collapse:collapse; 
+        } 
+ 
+        table,th,td{ 
+            border:1px solid #d6b3ff; 
+        } 
+ 
+        th{ 
+            background:#6a11cb; 
+            color:white; 
+        } 
+ 
+        td{ 
+            background:#faf7ff; 
+        } 
+ 
+        th,td{ 
+            padding:12px; 
+            text-align:center; 
+        } 
+ 
+        fieldset{ 
+            border:2px solid #6a11cb; 
+            border-radius:10px; 
+            padding:15px; 
+        } 
+ 
+        legend{ 
+            color:#6a11cb; 
+            font-weight:bold; 
+            padding:0 10px; 
+        } 
+ 
+        label{ 
+            display:inline-block; 
+            width:140px; 
+            margin-top:10px; 
+        } 
+ 
+        input,select{ 
+            padding:8px; 
+            margin:6px 0; 
+            border-radius:6px; 
+            border:1px solid #bbb; 
+        } 
+ 
+        input[type="submit"]{ 
+            background:#6a11cb; 
+            color:white; 
+            border:none; 
+            cursor:pointer; 
+            padding:10px 18px; 
+            margin-right:10px; 
+        } 
+ 
+        input[type="submit"]:hover{ 
+            background:#4b0da5; 
+        } 
+ 
+        input[type="reset"]{ 
+            background:#ff4d94; 
+            color:white; 
+            border:none; 
+            cursor:pointer; 
+            padding:10px 18px; 
+        } 
+ 
+        input[type="reset"]:hover{ 
+            background:#d63384; 
+        } 
+ 
+        progress{ 
+            width:300px; 
+            height:20px; 
+        } 
+ 
+        audio,video{ 
+            display:block; 
+            margin:15px auto; 
+        } 
+ 
+        iframe{ 
+            width:100%; 
+            height:400px; 
+            border:none; 
+            border-radius:10px; 
+        } 
+ 
+        a{ 
+            color:#6a11cb; 
+            text-decoration:none; 
+            font-weight:bold; 
+        } 
+ 
+        a:hover{ 
+            color:#ff4d94; 
+        } 
+ 
+        footer{ 
+            background:linear-gradient(90deg,#6a11cb,#ff4d94); 
+            color:white; 
+            text-align:center; 
+            padding:15px; 
+            margin-top:30px; 
+        } 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+<header> 
+    <h1>HTML5 Showcase Page</h1> 
+</header> 
+ 
+<!-- Description Section --> 
+<section> 
+ 
+<h2>About This Page</h2> 
+ 
+<p> 
+This webpage demonstrates the major features of HTML5 through a simple and 
+attractive design. 
+It contains hyperlinks, tables, images, multimedia, forms, downloadable files, 
+and embedded webpages. 
+The page is designed to help beginners understand commonly used HTML5 
+elements. 
+It also showcases semantic structure and user-friendly web page design. 
+</p> 
+ 
+</section> 
+ 
+<!-- Image Section --> 
+<section> 
+ 
+<h2>Sample Image</h2> 
+ 
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700" 
+alt="Technology Image"> 
+ 
+</section> 
+ 
+<!-- Hyperlink Section --> 
+<section> 
+ 
+<h2>Useful Websites</h2> 
+ 
+<p> 
+<a href="https://www.google.com" target="_blank">Google</a> | 
+<a href="https://github.com" target="_blank">GitHub</a> | 
+<a href="https://www.youtube.com" target="_blank">YouTube</a> 
+</p> 
+ 
+</section> 
+ 
+<!-- Table Section --> 
+<section> 
+ 
+<h2>HTML5 Elements</h2> 
+ 
+<table> 
+ 
+<tr> 
+<th>Element</th> 
+<th>Category</th> 
+<th>Purpose</th> 
+</tr> 
+ 
+<tr> 
+<td>&lt;img&gt;</td> 
+<td>Media</td> 
+<td>Displays images</td> 
+</tr> 
+ 
+<tr> 
+<td>&lt;form&gt;</td> 
+<td>Input</td> 
+<td>Collects user information</td> 
+</tr> 
+ 
+<tr> 
+<td>&lt;iframe&gt;</td> 
+<td>Embedding</td> 
+<td>Embeds another webpage</td> 
+</tr> 
+ 
+</table> 
+ 
+</section> 
+ 
+<!-- Form Section --> 
+<section> 
+ 
+<h2>Student Registration Form</h2> 
+ 
+<form> 
+ 
+<fieldset> 
+ 
+<legend>Personal Details</legend> 
+ 
+<label for="name">Name:</label> 
+<input type="text" id="name"><br> 
+ 
+<label for="email">Email:</label> 
+<input type="email" id="email"><br> 
+ 
+<label for="password">Password:</label> 
+<input type="password" id="password"><br> 
+ 
+<label for="phone">Phone:</label> 
+<input type="tel" id="phone"><br> 
+ 
+<label for="dob">Date of Birth:</label> 
+<input type="date" id="dob"><br> 
+ 
+<label>Gender:</label> 
+<input type="radio" name="gender"> Male 
+<input type="radio" name="gender"> Female 
+ 
+<br><br> 
+ 
+<label>Skills:</label> 
+<input type="checkbox"> HTML 
+<input type="checkbox"> CSS 
+<input type="checkbox"> JavaScript 
+ 
+<br><br> 
+ 
+<label for="range">Knowledge:</label> 
+<input type="range" id="range"> 
+ 
+<br><br> 
+ 
+<label for="resume">Resume:</label> 
+<input type="file" id="resume"> 
+ 
+<br><br> 
+ 
+<label for="course">Course:</label> 
+ 
+<select id="course"> 
+<option>B.Tech</option> 
+<option>BCA</option> 
+<option>MCA</option> 
+</select> 
+ 
+</fieldset> 
+ 
+<br> 
+ 
+<label>Profile Progress:</label> 
+ 
+<progress value="80" max="100"></progress> 
+ 
+<br><br> 
+ 
+<input type="submit" value="Submit"> 
+<input type="reset" value="Reset"> 
+ 
+</form> 
+ 
+</section> 
+ 
+<!-- Audio Section --> 
+<section> 
+ 
+<h2>Audio Sample</h2> 
+ 
+<audio controls> 
+    <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg"> 
+    Your browser does not support audio. 
+</audio> 
+ 
+</section> 
+ 
+<!-- Video Section --> 
+<section> 
+ 
+<h2>Video Sample</h2> 
+ 
+<video width="500" controls> 
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> 
+    Your browser does not support video. 
+</video> 
+ 
+</section> 
+ 
+<!-- Download Section --> 
+<section> 
+ 
+<h2>Download PDF</h2> 
+ 
+<a 
+href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" 
+download> 
+Download Sample PDF 
+</a> 
+ 
+</section> 
+ 
+<!-- Embedded Webpage Section --> 
+<section> 
+ 
+<h2>Embedded Website</h2> 
+ 
+<iframe 
+src="https://www.youtube.com/embed/aqz-KE-bpKQ" 
+allowfullscreen> 
+</iframe> 
+ 
+</section> 
+ 
+<footer> 
+ 
+<h3>© 2026 HTML5 Showcase Page</h3> 
+ 
+</footer> 
+ 
+</body> 
+</html>

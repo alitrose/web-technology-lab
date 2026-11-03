@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h2>Currency Converter</h2>
+
+    Convert
+    <input type="number" id="data" step="any">
+
+    <select id="from">
+        <option value="INR">Indian Rupee</option>
+        <option value="USD">US Dollar</option>
+    </select>
+
+    to
+
+    <select id="to">
+        <option value="USD">US Dollar</option>
+        <option value="INR">Indian Rupee</option>
+    </select>
+
+    <button onclick="convert()">Calculate</button>
+
+    <p>Answer: <span id="answer"></span></p>
+
+    <script>
+        function convert() {
+            let amount = parseFloat(
+                document.getElementById("data").value
+            );
+
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+            let result;
+
+            if (isNaN(amount)) {
+                alert("Enter a valid amount.");
+                return;
+            }
+
+            if (from === to) {
+                result = amount;
+            } else if (from === "INR" && to === "USD") {
+                result = amount * 0.015;
+            } else {
+                result = amount * 67.12;
+            }
+
+            let currency = to === "USD" ? "USD" : "INR";
+
+            document.getElementById("answer").innerHTML =
+                result.toFixed(2) + " " + currency;
+        }
+    </script>
+</body>
+</html>

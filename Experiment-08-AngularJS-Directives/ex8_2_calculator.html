@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CalculatorApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input, select, button {
+            padding: 8px;
+            margin: 8px 0;
+        }
+        .calculator {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator"
+         ng-controller="CalculatorController">
+
+        <h2>Simple Calculator</h2>
+
+        <p>First Number:</p>
+        <input type="number" ng-model="a" placeholder="Enter first number">
+
+        <p>Second Number:</p>
+        <input type="number" ng-model="b" placeholder="Enter second number">
+
+        <p>Select Operator:</p>
+        <select ng-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <h3>Result: {{ result() }}</h3>
+
+    </div>
+
+    <script>
+        angular.module("CalculatorApp", [])
+        .controller("CalculatorController", function($scope) {
+
+            $scope.a = 0;
+            $scope.b = 0;
+            $scope.operator = "+";
+
+            $scope.result = function() {
+                var a = Number($scope.a);
+                var b = Number($scope.b);
+
+                if ($scope.operator == "+") {
+                    return a + b;
+                }
+
+                if ($scope.operator == "-") {
+                    return a - b;
+                }
+
+                if ($scope.operator == "*") {
+                    return a * b;
+                }
+
+                if ($scope.operator == "/") {
+                    return b === 0 ? "Cannot divide by zero" : a / b;
+                }
+            };
+        });
+    </script>
+
+</body>
+</html>

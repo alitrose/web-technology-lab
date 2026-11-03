@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            max-width: 90%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #aaa;
+        }
+
+        h2 {
+            text-align: center;
+            color: #286090;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background: #2878b5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #155580;
+        }
+
+        .result {
+            margin-top: 15px;
+            line-height: 2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Budget Calculator</h2>
+
+        <label>Total Amount (₹):</label>
+        <input type="number" id="amount" min="0" placeholder="Enter total amount">
+
+        <label>Room Rent (%):</label>
+        <input type="number" id="rent" min="0" max="100" value="30">
+
+        <label>Accessories (%):</label>
+        <input type="number" id="accessories" min="0" max="100" value="20">
+
+        <label>Emergency (%):</label>
+        <input type="number" id="emergency" min="0" max="100" value="10">
+
+        <label>Savings (%):</label>
+        <input type="number" id="savings" min="0" max="100" value="40">
+
+        <button id="evaluate">Evaluate My Money</button>
+
+        <div class="result">
+            <p id="r1"></p>
+            <p id="r2"></p>
+            <p id="r3"></p>
+            <p id="r4"></p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#evaluate").click(function () {
+                let amount = Number($("#amount").val());
+
+                let rent = Number($("#rent").val());
+                let accessories = Number($("#accessories").val());
+                let emergency = Number($("#emergency").val());
+                let savings = Number($("#savings").val());
+
+                if ($("#amount").val() === "" || amount <= 0) {
+                    alert("Please enter a valid amount.");
+                    return;
+                }
+
+                let values = [rent, accessories, emergency, savings];
+
+                for (let i = 0; i < values.length; i++) {
+                    if (values[i] < 0 || values[i] > 100 ||
+                        !Number.isFinite(values[i])) {
+                        alert("Enter percentages between 0 and 100.");
+                        return;
+                    }
+                }
+
+                let total = rent + accessories + emergency + savings;
+
+                if (total !== 100) {
+                    alert("The total percentage must equal 100%.");
+                    return;
+                }
+
+                if (amount % 100 !== 0) {
+                    alert("Amount must be divisible by 100.");
+                    return;
+                }
+
+                $("#r1").text("Room Rent: ₹" + (amount * rent / 100).toFixed(2));
+                $("#r2").text("Accessories: ₹" + (amount * accessories / 100).toFixed(2));
+                $("#r3").text("Emergency: ₹" + (amount * emergency / 100).toFixed(2));
+                $("#r4").text("Savings: ₹" + (amount * savings / 100).toFixed(2));
+            });
+        });
+    </script>
+</body>
+</html>

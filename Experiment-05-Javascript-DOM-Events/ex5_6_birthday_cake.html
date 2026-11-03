@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Cake Order Form</title>
+</head>
+<body>
+    <h2>Birthday Cake Order Form</h2>
+
+    <fieldset>
+        <label>
+            Number of 1/2 kg Cakes (Rs.100):
+            <input type="number" id="small" min="0" value="0">
+        </label>
+        <br><br>
+
+        <label>
+            Number of 1 kg Cakes (Rs.200):
+            <input type="number" id="medium" min="0" value="0">
+        </label>
+        <br><br>
+
+        <label>
+            Number of 2 kg Cakes (Rs.400):
+            <input type="number" id="large" min="0" value="0">
+        </label>
+        <br><br>
+
+        Tip:
+        <label>
+            <input type="radio" name="tip" value="10">
+            10%
+        </label>
+
+        <label>
+            <input type="radio" name="tip" value="15" checked>
+            15%
+        </label>
+
+        <label>
+            <input type="radio" name="tip" value="20">
+            20%
+        </label>
+
+        <br><br>
+        <button id="submit">Calculate Order</button>
+    </fieldset>
+
+    <p>Cost of order: Rs. <span id="price">0.00</span></p>
+
+    <script>
+        document.getElementById("submit").addEventListener(
+            "click", calculateOrder
+        );
+
+        function calculateOrder() {
+            let small = parseInt(
+                document.getElementById("small").value
+            ) || 0;
+
+            let medium = parseInt(
+                document.getElementById("medium").value
+            ) || 0;
+
+            let large = parseInt(
+                document.getElementById("large").value
+            ) || 0;
+
+            if (small < 0 || medium < 0 || large < 0) {
+                alert("Cake quantities cannot be negative.");
+                return;
+            }
+
+            let subtotal =
+                (small * 100) +
+                (medium * 200) +
+                (large * 400);
+
+            let tax = subtotal * 0.09;
+            let totalAfterTax = subtotal + tax;
+
+            let tip = parseFloat(
+                document.querySelector(
+                    'input[name="tip"]:checked'
+                ).value
+            );
+
+            let tipAmount = totalAfterTax * tip / 100;
+            let total = totalAfterTax + tipAmount;
+
+            document.getElementById("price").innerHTML =
+                total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

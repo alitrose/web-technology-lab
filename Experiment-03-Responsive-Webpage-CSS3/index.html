@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            background: #fff8f2;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b35, #ff9f43);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background: #ff6b35;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #e65100;
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        /* Main Content */
+        .main {
+            flex: 3;
+            background: white;
+            margin: 10px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .main h2 {
+            color: #ff6b35;
+            margin-bottom: 12px;
+        }
+
+        .main p {
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .main ul {
+            margin-left: 25px;
+            line-height: 1.8;
+        }
+
+        /* Welcome Box */
+        .welcome-box {
+            background: #fff3cd;
+            border-left: 6px solid #ff9800;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            background: #fff0e6;
+            margin: 10px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .sidebar h2 {
+            color: #ff6b35;
+            margin-bottom: 15px;
+        }
+
+        .sidebar p {
+            margin-bottom: 12px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            color: #ff3d00;
+        }
+
+        hr {
+            margin: 15px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #ff6b35;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width:768px) {
+
+            .container {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+        <h1>Responsive Webpage Using HTML5 & CSS3</h1>
+        <p>Web Technology Laboratory - Experiment 3</p>
+    </header>
+
+    <!-- Navigation -->
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Gallery</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Section -->
+
+    <div class="container">
+
+        <div class="main">
+
+            <h2>Welcome</h2>
+
+            <div class="welcome-box">
+                <p>
+                    This webpage demonstrates Responsive Web Design using HTML5
+                    and CSS3. It uses Flexbox, Media Queries and Semantic
+                    Elements to automatically adjust the layout for desktop,
+                    tablet and mobile devices.
+                </p>
+            </div>
+
+            <br>
+
+            <h2>Experiment Features</h2>
+
+            <ul>
+                <li>HTML5 Semantic Elements</li>
+                <li>CSS3 Styling</li>
+                <li>Flexbox Layout</li>
+                <li>Responsive Design</li>
+                <li>Navigation Menu</li>
+                <li>Media Queries</li>
+                <li>Hover Effects</li>
+                <li>Background Colors</li>
+                <li>Text Formatting</li>
+            </ul>
+
+            <br>
+
+            <h2>About HTML5</h2>
+
+            <p>
+                HTML5 is the latest version of HyperText Markup Language. It
+                provides semantic tags like header, nav, section and footer,
+                making webpages easier to understand and maintain.
+            </p>
+
+            <h2>About CSS3</h2>
+
+            <p>
+                CSS3 is used to style webpages by adding colors, layouts,
+                gradients, animations and responsive techniques. It helps create
+                attractive websites that work well on different devices.
+            </p>
+
+        </div>
+
+        <!-- Sidebar -->
+
+        <div class="sidebar">
+
+            <h2>Student Details</h2>
+
+            <p><strong>Name :</strong> NAVYA</p>
+
+            <p><strong>Register No :</strong> URK24CS9042</p>
+
+            <p><strong>Course :</strong> B.Tech CSE (AI & ML)</p>
+
+            <p><strong>Subject :</strong> Web Technology Lab</p>
+
+            <p><strong>Experiment :</strong> Responsive Webpage Using HTML5 & CSS3</p>
+
+            <hr>
+
+            <h2>Quick Links</h2>
+
+            <p><a href="#">HTML Tutorial</a></p>
+
+            <p><a href="#">CSS Tutorial</a></p>
+
+            <p><a href="#">Responsive Design</a></p>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            Developed by <b>NAVYA</b> |
+            Register No: <b>URK24CS9042</b>
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

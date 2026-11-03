@@ -1,0 +1,12 @@
+{
+  "name": "web-tech-exp-10-node-mongo",
+  "version": "1.0.0",
+  "description": "HTML Form Request Handling using NodeJS and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mongodb": "^6.0.0"
+  }
+}

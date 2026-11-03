@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        input {
+            padding: 8px;
+            width: 220px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        li {
+            margin: 12px 0;
+        }
+    </style>
+</head>
+<body ng-controller="todoController">
+
+    <h2>Simple To-Do List</h2>
+
+    <form ng-submit="add()">
+        <input type="text"
+               ng-model="title"
+               placeholder="Enter a task"
+               required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h3>Tasks</h3>
+
+    <ul>
+        <li ng-repeat="t in tasks track by $index">
+            {{ t }}
+            <button ng-click="remove($index)">Delete</button>
+        </li>
+    </ul>
+
+    <p ng-if="tasks.length === 0">No tasks added yet.</p>
+
+    <script>
+        angular.module("todoApp", [])
+        .controller("todoController", function($scope) {
+
+            $scope.tasks = [];
+
+            $scope.add = function() {
+                if ($scope.title && $scope.title.trim() !== "") {
+                    $scope.tasks.push($scope.title);
+                    $scope.title = "";
+                }
+            };
+
+            $scope.remove = function(index) {
+                $scope.tasks.splice(index, 1);
+            };
+        });
+    </script>
+
+</body>
+</html>

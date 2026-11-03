@@ -1,0 +1,41 @@
+<h2>Contact Us</h2>
+
+<p>Fill in the form below to contact us.</p>
+
+<form ng-controller="ContactController"
+      ng-submit="sendMessage()">
+
+    <label>Name:</label>
+    <input type="text"
+           ng-model="contact.name"
+           required>
+
+    <label>Email:</label>
+    <input type="email"
+           ng-model="contact.email"
+           required>
+
+    <label>Message:</label>
+    <textarea ng-model="contact.message"
+              required></textarea>
+
+    <button type="submit">Send Message</button>
+
+    <p ng-if="sent" style="color:green">
+        Message submitted successfully!
+    </p>
+</form>
+
+<script>
+    angular.module("myApp").controller(
+        "ContactController",
+        function($scope) {
+            $scope.contact = {};
+            $scope.sent = false;
+
+            $scope.sendMessage = function() {
+                $scope.sent = true;
+            };
+        }
+    );
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shortest and Longest Word</title>
+</head>
+<body>
+    <h2>Find Shortest and Longest Word</h2>
+
+    <input type="text" id="sentence"
+           value="Web Development Tutorial">
+    <button onclick="findWords()">Find Words</button>
+
+    <p id="result"></p>
+
+    <script>
+        function findWords() {
+            let str = document.getElementById("sentence").value;
+            let words = str.trim().split(/\s+/);
+
+            let shortest = words[0];
+            let longest = words[0];
+
+            for (let word of words) {
+                if (word.length < shortest.length)
+                    shortest = word;
+
+                if (word.length > longest.length)
+                    longest = word;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Shortest: " + shortest +
+                "<br>Longest: " + longest;
+        }
+    </script>
+</body>
+</html>

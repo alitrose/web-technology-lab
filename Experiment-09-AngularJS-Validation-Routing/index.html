@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - AngularJS Routing</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f6fc;
+        }
+
+        header {
+            background-color: #234a84;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #18345e;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .content {
+            background-color: white;
+            margin: 30px auto;
+            padding: 30px;
+            width: 75%;
+            min-height: 250px;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        footer {
+            background-color: #234a84;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        input, textarea {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #234a84;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Website</h1>
+        <p>Welcome to our website using AngularJS Routing</p>
+    </header>
+
+    <nav>
+        <a href="#!/">Home</a>
+        <a href="#!/about">About</a>
+        <a href="#!/services">Services</a>
+        <a href="#!/contact">Contact</a>
+    </nav>
+
+    <div class="content">
+        <div ng-view></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Website. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+
+        app.config(function($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "main.htm"
+                })
+                .when("/about", {
+                    templateUrl: "about.htm"
+                })
+                .when("/services", {
+                    templateUrl: "services.htm"
+                })
+                .when("/contact", {
+                    templateUrl: "contact.htm"
+                })
+                .otherwise({
+                    redirectTo: "/"
+                });
+        });
+    </script>
+
+</body>
+</html>

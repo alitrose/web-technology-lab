@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            padding: 30px;
+        }
+        .container {
+            width: 480px;
+            margin: auto;
+            background: white;
+            padding: 25px 35px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2b49d6;
+            margin-bottom: 25px;
+        }
+        .form-row {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .form-row label {
+            width: 140px;
+            color: #2b49d6;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .req { color: red; }
+        .form-row input[type="text"],
+        .form-row input[type="password"],
+        .form-row input[type="number"],
+        .form-row input[type="email"],
+        .form-row select {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+        }
+        .btn-submit {
+            display: block;
+            margin: 20px auto 0;
+            padding: 8px 24px;
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn-submit:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration Form</h2>
+        <form action="/server" method="POST">
+            <div class="form-row">
+                <label>Name<span class="req">*</span></label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-row">
+                <label>Password<span class="req">*</span></label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="form-row">
+                <label>Age<span class="req">*</span></label>
+                <input type="number" name="age" min="18" max="100" required>
+            </div>
+            <div class="form-row">
+                <label>Mobile Number<span class="req">*</span></label>
+                <input type="text" name="mobile" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-row">
+                <label>Email<span class="req">*</span></label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-row">
+                <label>Gender<span class="req">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male" checked> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <label>State<span class="req">*</span></label>
+                <select name="state" required>
+                    <option value="">-- Select State --</option>
+                    <option value="Kerala" selected>Kerala</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Skills<span class="req">*</span></label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="skills" value="Java Script" checked> Java Script</label>
+                    <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                    <label><input type="checkbox" name="skills" value="C++" checked> C++</label>
+                    <label><input type="checkbox" name="skills" value="Java"> Java</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
