@@ -51,5 +51,25 @@ This exercise involves designing and developing a simple Photography Portfolio W
 
 ---
 
+
+---
+
+## Output Screenshots
+
+### 1. Header & Navigation (ALIT ROSE M M - URK24CS9042)
+![Header and Navigation](./screenshots/exp1_output_01_header_nav.png)
+
+### 2. Photo Gallery Showcase Grid
+![Photo Gallery](./screenshots/exp1_output_02_gallery.png)
+
+### 3. Photography Projects Table & Terms Description List
+![Projects Table](./screenshots/exp1_output_03_projects_table.png)
+
+### 4. Workflow Nested Lists & About Photography Section
+![Workflow and About](./screenshots/exp1_output_04_workflow_about.png)
+
+### 5. Contact Information & Footer
+![Contact and Footer](./screenshots/exp1_output_05_contact_footer.png)
+
 ## Result
 The Photography Portfolio Website was successfully designed and implemented using HTML5 and internal CSS. All the required HTML elements, hyperlinks, images, lists, tables, and formatting techniques were incorporated, and the webpage was executed successfully with the expected output.
